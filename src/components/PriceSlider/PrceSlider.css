@@ -1,0 +1,33 @@
+/* .price-slider .slick-prev {
+  color: var(--black);
+  left: 0px;
+  z-index: 1;
+  opacity: 0;
+}
+.price-slider:hover .slick-next,
+.price-slider:hover .slick-prev {
+  opacity: 1;
+}
+.price-slider .slick-next {
+  color: var(--black);
+  z-index: 1;
+  right: 0px;
+  opacity: 0;
+  transition: all 0.5 ease;
+}
+
+@media all and (max-width: 899px) and (min-width: 700px) {
+  .price-slider .slick-list {
+    width: 500px !important;
+  }
+}
+@media all and (max-width: 699px) and (min-width: 500px) {
+  .price-slider .slick-list {
+    width: 400px !important;
+  }
+}
+@media all and (max-width: 499px) and (min-width: 200px) {
+  .price-slider .slick-list {
+    width: 345px !important;
+  }
+} */

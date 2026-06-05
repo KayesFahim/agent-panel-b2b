@@ -1,0 +1,49 @@
+.not-found-wrapper {
+  background-image: url("../../images/404Page/404.svg"),
+    linear-gradient(
+      121.52deg,
+      var(--secondary-color) 100%,
+      var(--primary-color) 0%
+    );
+  background-repeat: no-repeat;
+  background-position: top 20% left 10%;
+  height: 100vh;
+  width: 100%;
+}
+
+.not-found-wrapper .not-found {
+  padding: 10%;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  align-items: flex-end;
+}
+
+.not-found-wrapper .not-found-title {
+  font-size: 10rem;
+  font-weight: 400;
+  color: transparent;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
+  -webkit-text-stroke: 3px #7f8182;
+  margin-bottom: -1rem;
+}
+.not-found-wrapper .not-found-subtitle {
+  color: #7f8182;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
+
+  margin-bottom: 3rem;
+}
+.not-found-wrapper .not-found-paragraph {
+  width: 50%;
+  color: #fff;
+  font-size: 1.2rem;
+}
+.not-found-wrapper .not-found-btn {
+  background-color: var(--primary-color) !important;
+  box-shadow: none;
+  margin-top: 1.5rem;
+}
+.not-found-wrapper .not-found-link {
+  color: #fff;
+  text-decoration: none;
+}

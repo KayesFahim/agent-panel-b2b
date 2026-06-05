@@ -1,0 +1,94 @@
+.active-nav {
+  /* background-color: var(--secondary-color); */
+  color: var(--white);
+  transition: all 0.5s ease-in-out;
+  text-decoration: none;
+  width: fit-content;
+  height: 100%;
+  border-radius: 5px 5px 0px 0px;
+  padding: 0px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landingActive-nav {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  transition: all 0.5s ease-in-out;
+  text-decoration: none;
+  width: fit-content;
+  height: 100%;
+  border-radius: 20px;
+  padding: 3px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+}
+.landingNormal-nav {
+  font-weight: 400;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+.normal-nav {
+  background-color: var(--primary-color);
+  color: var(--white);
+  transition: all 0.5s ease-in-out;
+  text-decoration: none;
+  width: fit-content;
+  height: 100%;
+  border-radius: 5px 5px 0px 0px;
+  padding: 0px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.active-mobile-nav {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  transition: all 0.5s ease-in-out;
+  text-decoration: none;
+  width: 100%;
+  height: fit-content;
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: '5px';
+}
+.normal-mobile-nav {
+  background-color: var(--primary-color);
+  color: var(--white);
+  transition: all 0.5s ease-in-out;
+  text-decoration: none;
+  width: 100%;
+  height: fit-content;
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: '5px';
+}
+
+.balance-container {
+  position: relative; /* Required for absolute positioning of the balance text */
+}
+
+.balance-closed {
+  position: absolute;
+  opacity: 0;
+  left: -100%; /* Move the text off-screen initially */
+  transition: opacity 0.3s ease-out, left 0.5s ease-out; /* Transition opacity and left position */
+}
+
+.balance-open {
+  position: relative;
+  opacity: 1;
+  left: 0; /* Show the text */
+  top: 0;
+  transition: opacity 0.3s ease-in, left 0.5s ease-in; /* Transition opacity and left position */
+}

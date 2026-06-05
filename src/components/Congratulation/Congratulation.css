@@ -1,0 +1,315 @@
+.accordian-expand .Mui-expanded {
+  margin: 5px 0 !important;
+}
+
+.ButtonColor {
+  background-color: #003566 !important;
+}
+
+.queue-detail-passenger-detail span {
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 18px;
+  color: #003566;
+  background: #d1e9ff;
+  padding: 8px 8px;
+  display: block;
+}
+
+.queue-detail-passenger-detail h5 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  color: #767676;
+  padding: 1px 0;
+  margin: 0;
+}
+.queue-detail-passenger-detail h6 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  color: #003566;
+  padding: 2px 0;
+  margin: 0;
+}
+
+/* .congratulation {
+  padding: 0px 20px;
+} */
+
+.congratulation-content {
+  display: flex;
+  /* gap: 15px; */
+}
+
+.congratulation-content img {
+  width: 35px;
+  height: 35px;
+}
+.congratulation-content h4 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 27px;
+  color: #00a912;
+}
+
+.congratulation-content p {
+  color: #bebebf;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 10px 0px;
+}
+
+.ticket-details p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 28px;
+  color: #000000;
+  padding-top: 0px;
+  text-align: justify;
+  width: fit-content;
+}
+
+.booking-time {
+  padding: 25px 0px;
+}
+
+.booking-time p {
+  color: #bebebf;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+}
+.booking-time span {
+  color: #222326;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.booking-confirm h4 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  color: #e02c50;
+  padding-bottom: 5px;
+}
+.booking-confirm span {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #003566;
+}
+#pnrBooking {
+  padding: 0px 25px;
+}
+
+.booking-table-parent {
+  display: flex;
+  gap: 100px;
+  padding: 20px 0px;
+}
+
+.booking-table table tr th {
+  border: 0px !important;
+}
+
+.flight-detailed-parent {
+  padding: 30px;
+}
+
+.booking-table table tr td {
+  text-align: left;
+  padding: 8px 0px;
+  padding-right: 15px;
+  border: 0px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #222326;
+  border: 1px solid #fff !important;
+  text-align: left !important;
+}
+.booking-cancellation button {
+  padding: 8px 20px;
+  border: 1px solid #ff6464;
+  color: #ff6464;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.booking-grid {
+  padding: 20px;
+  /* display: flex; */
+}
+
+.flight-detailed {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flight-detailed h4 {
+  color: #ffffff;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.flight-detailed-Img {
+  text-align: center;
+}
+.flight-detailed-Img span {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  color: #d1e9ff;
+}
+
+.bookingDepart {
+  padding: 15px 0px;
+}
+
+.bookingDepart span {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  color: #d1e9ff;
+}
+
+.bookingDepart h5 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  color: #ffffff;
+}
+
+.flightClass {
+  display: flex;
+  gap: 80px;
+}
+
+.flightClass span {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #d1e9ff;
+}
+
+.flightClassDetails span {
+  color: #fff;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.flightDetailsDown button {
+  text-align: center;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  position: relative;
+  top: 108px;
+  left: 67px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.flight5class h4 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  color: #d1e9ff;
+}
+
+.flight5class span {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+@media (min-width: 300px) and (max-width: 480px) {
+  .fSize {
+    font-size: 11px !important;
+  }
+  .left-side-spacing {
+    margin-left: 9px;
+  }
+
+  .congratulation-content h4 {
+    font-size: 18px;
+  }
+}
+
+@media all and (max-width: 768px) and (min-width: 320px) {
+  .booking-table table tr th {
+    border: 0px !important;
+  }
+}
+
+.modal-table {
+  width: 100%;
+  overflow: scroll !important;
+}
+.modal-table table {
+  border-collapse: collapse;
+  border: 1px solid white;
+}
+.modal-table table th {
+  background-color: var(--p1);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+}
+.modal-table table td {
+  background-color: var(--input-bgcolor);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.modal-table::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+.modal-table::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+.modal-table::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.reissue-calendar {
+  position: absolute;
+  z-index: 1;
+}

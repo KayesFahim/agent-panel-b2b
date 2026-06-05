@@ -1,0 +1,10 @@
+.phoneIn {
+  background: none !important;
+  font-size: 15.2px;
+  font-family: "Inter";
+  font-weight: 500;
+  /* border-bottom: 1px solid var(--secondary-color); */
+}
+.react-tel-input .form-control {
+  background: none !important;
+}

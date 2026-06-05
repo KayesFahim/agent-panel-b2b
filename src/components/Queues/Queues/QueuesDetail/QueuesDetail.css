@@ -1,0 +1,120 @@
+
+/* .time-location{
+  font-family: "Inter";
+  font-size: "10px";
+  font-weight: 500;
+  color: red;
+} */
+
+.returnFlight1 button {
+  background-color: var(--primary-color);
+  border: 0px;
+  width: 150px;
+  height: 27px;
+  color: #fff !important;
+  font-size: 12px;
+}
+
+
+.note-line {
+  position: relative;
+  border-left: 3px solid #d9d9d9;
+  min-height: 92px;
+  margin-left: 7px;
+}
+
+.issueTicket button {
+  border: 0px;
+  background: transparent;
+  background: var(--primary-color) !important;
+  width: 160px;
+  height: 35px;
+  color: #fff;
+  font-family: "poppins";
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.issueCancel button {
+  border: 0px;
+  background: transparent;
+  background: #ff4a4a !important;
+  width: 160px;
+  height: 35px;
+  color: #fff;
+  font-family: "poppins";
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+}
+.upload button {
+  border: 0px;
+  background: transparent;
+  background: var(--primary-color) !important;
+  width: 160px;
+  height: 35px;
+  color: #fff;
+  font-family: "poppins";
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Modal table */
+
+.modalStyler {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+}
+
+.modal-table-0 {
+  overflow-y: scroll;
+}
+
+/* .modal-table table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.modal-table td {
+  text-align: left;
+  font-size: 13px;
+  border: none;
+  color: #222222;
+  font-weight: 500;
+  padding: 5px;
+}
+.modal-table th {
+  text-align: left;
+  font-size: 13px;
+  background-color: var(--secondary-color);
+  color:#fff;
+  font-weight: 500;
+} */
+
+@media screen and (min-width: 200px) and (max-width: 1000px) {
+  .modal-table {
+    overflow-x: scroll;
+  }
+}
+.queues-detail-wait-btn button {
+  margin-top: 15px;
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  background-color: var(--secondary-color);
+  color: #fff;
+  border: none;
+  cursor: auto;
+}

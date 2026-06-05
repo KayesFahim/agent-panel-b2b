@@ -1,0 +1,124 @@
+/* -------------------------------------------------------------
+   LandingHeader Modernized Stylesheet
+   ------------------------------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+.header-root {
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.floating-appbar {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(20px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02) !important;
+  position: sticky !important;
+  top: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Nav Item Styling */
+.nav-link-item {
+  color: #1e293b !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 0.95rem !important;
+  position: relative;
+  transition: color 0.3s ease !important;
+  padding: 8px 0 !important;
+  margin-right: 32px !important;
+  display: inline-block;
+  text-transform: none !important;
+}
+
+.nav-link-item::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  width: 0;
+  height: 2.5px;
+  background: var(--primary-color) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.nav-link-item:hover {
+  color: var(--primary-color) !important;
+  background: transparent !important;
+}
+
+.nav-link-item:hover::after {
+  width: 100%;
+}
+
+/* Action Button */
+.header-btn {
+  background: var(--primary-color) !important;
+  color: #ffffff !important;
+  border-radius: 30px !important;
+  padding: 8px 26px !important;
+  font-family: 'Inter', 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  box-shadow: 0 4px 14px rgba(26, 58, 110, 0.2) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.header-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(26, 58, 110, 0.3), 0 0 0 4px rgba(26, 58, 110, 0.1) !important;
+  background: linear-gradient(135deg, #234f94 0%, var(--primary-color) 100%) !important;
+}
+
+.header-btn:active {
+  transform: translateY(0);
+}
+
+/* Mobile Drawer Overrides */
+.mobile-drawer-paper {
+  background-color: #ffffff !important;
+  box-shadow: 20px 0 40px rgba(0, 0, 0, 0.08) !important;
+}
+
+.drawer-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+
+.drawer-links-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 2rem 1.5rem;
+}
+
+.drawer-nav-item {
+  color: #1e293b !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  border-radius: 10px !important;
+  padding: 12px !important;
+  text-align: center !important;
+  transition: all 0.2s ease !important;
+}
+
+.drawer-nav-item:hover {
+  background-color: #f1f5f9 !important;
+  color: #0487C7 !important;
+}
+
+.drawer-action-btn {
+  margin-top: 1.5rem !important;
+  border-radius: 12px !important;
+  padding: 12px !important;
+}

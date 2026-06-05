@@ -1,0 +1,305 @@
+/* =============================================================
+   Hero Banner — Big Marketing Text Edition
+   ============================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+
+/* ── Container ─────────────────────────────────────────────── */
+.hero-banner-container {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 2rem 3rem;
+  overflow: hidden;
+}
+
+/* ── Floating animated orbs ────────────────────────────────── */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.18;
+  animation: orbFloat 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero-orb-1 {
+  width: 420px;
+  height: 420px;
+  background: #0487C7;
+  top: -100px;
+  left: -120px;
+  animation-delay: 0s;
+}
+
+.hero-orb-2 {
+  width: 320px;
+  height: 320px;
+  background: #4facfe;
+  bottom: -80px;
+  right: -80px;
+  animation-delay: 3s;
+}
+
+.hero-orb-3 {
+  width: 240px;
+  height: 240px;
+  background: #a8edea;
+  top: 40%;
+  left: 50%;
+  animation-delay: 5s;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50%       { transform: translateY(-30px) scale(1.06); }
+}
+
+/* ── Badge ─────────────────────────────────────────────────── */
+.hero-badge-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+  animation: fadeSlideUp 0.6s ease both;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  border-radius: 100px;
+}
+
+.hero-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.3);
+  animation: pulse 2s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.3); }
+  50%       { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0.1); }
+}
+
+/* ── Main Headline ─────────────────────────────────────────── */
+.hero-headline {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 900 !important;
+  font-size: clamp(2.6rem, 6vw, 5rem) !important;
+  line-height: 1.1 !important;
+  color: #ffffff !important;
+  text-align: center !important;
+  letter-spacing: -1px !important;
+  margin-bottom: 1.4rem !important;
+  animation: fadeSlideUp 0.7s ease 0.1s both;
+  text-shadow: 0 4px 24px rgba(0,0,0,0.18);
+}
+
+.hero-headline-accent {
+  background-color: var(--primary-color) !important;
+  color: #ffffff !important;
+  padding: 4px 20px !important;
+  border-radius: 12px !important;
+  display: inline-block;
+  box-shadow: 0 4px 15px rgba(26, 58, 110, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* ── Sub-headline ──────────────────────────────────────────── */
+.hero-subheadline {
+  font-family: 'Inter', sans-serif !important;
+  font-size: clamp(1rem, 2vw, 1.25rem) !important;
+  font-weight: 400 !important;
+  color: rgba(255, 255, 255, 0.82) !important;
+  text-align: center !important;
+  line-height: 1.75 !important;
+  max-width: 680px !important;
+  margin: 0 auto 2.5rem !important;
+  animation: fadeSlideUp 0.7s ease 0.2s both;
+}
+
+.hero-br {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hero-br { display: block; }
+}
+
+/* ── CTA Row ────────────────────────────────────────────────── */
+.hero-cta-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+  animation: fadeSlideUp 0.7s ease 0.3s both;
+}
+
+.hero-btn-primary {
+  background: var(--primary-color) !important;
+  color: #fff !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  padding: 14px 36px !important;
+  border-radius: 14px !important;
+  text-transform: none !important;
+  box-shadow: 0 8px 32px rgba(26, 58, 110, 0.45) !important;
+  transition: all 0.3s ease !important;
+  letter-spacing: 0.3px !important;
+}
+
+.hero-btn-primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 40px rgba(26, 58, 110, 0.6) !important;
+  background: linear-gradient(135deg, #234f94 0%, #1A3A6E 100%) !important;
+}
+
+.hero-btn-secondary {
+  background: #ffffff !important;
+  color: var(--primary-color) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  padding: 14px 36px !important;
+  border-radius: 14px !important;
+  text-transform: none !important;
+  border: 1.5px solid #ffffff !important;
+  transition: all 0.3s ease !important;
+  letter-spacing: 0.3px !important;
+}
+
+.hero-btn-secondary:hover {
+  background: #f1f5f9 !important;
+  border-color: #f1f5f9 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 40px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* ── Stats Grid ─────────────────────────────────────────────── */
+.hero-stats-grid {
+  animation: fadeSlideUp 0.7s ease 0.45s both;
+  justify-content: center !important;
+}
+
+.hero-stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 1.5rem 1rem;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.hero-stat-card:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+}
+
+.hero-stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--primary-color), #122E55) !important;
+  color: #fff;
+  margin-bottom: 0.75rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.hero-stat-icon svg {
+  font-size: 22px !important;
+  transition: transform 0.3s ease;
+}
+
+.hero-stat-card:hover .hero-stat-icon {
+  background: linear-gradient(135deg, #0487C7, #0284c7) !important;
+  transform: scale(1.05);
+}
+
+.hero-stat-value {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 1.8rem !important;
+  color: #ffffff !important;
+  line-height: 1 !important;
+  margin-bottom: 0.3rem !important;
+}
+
+.hero-stat-label {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 500 !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+}
+
+/* ── Shared animation ───────────────────────────────────────── */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .hero-banner-container {
+    padding: 5rem 1.5rem 3.5rem;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-banner-container {
+    padding: 4.5rem 1rem 3rem;
+  }
+  .hero-stat-value {
+    font-size: 1.4rem !important;
+  }
+  .hero-cta-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-btn-primary,
+  .hero-btn-secondary {
+    width: 100% !important;
+    max-width: 320px !important;
+  }
+}

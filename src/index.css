@@ -1,0 +1,716 @@
+* {
+  font-family: "Inter" !important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter" !important;
+}
+html {
+  scroll-behavior: smooth;
+}
+a {
+  text-decoration: none !important;
+  font-size: 11px;
+}
+p {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter" !important;
+}
+
+/* flight details accordion */
+.css-o4b71y-MuiAccordionSummary-content {
+  margin: 0;
+}
+
+:root {
+  --rgb-color: rgba(26, 58, 110, 0.6);
+  --primary-rgb: rgba(26, 58, 110, 0.08);
+  --primary-color: #1A3A6E;
+  --table-heading: #1A3A6E;
+  --p1: #1A3A6E;
+  --p2: #1A3A6E;
+  --cong-color: #1A3A6E;
+  --secondary-color: #222222;
+  --secondary: #2b2828;
+  --third-color: #1A3A6E;
+  --gray: #c4c4c4;
+  --fontcolor: #6a6a6a;
+  --button: #1A3A6E;
+  --border: #ddd;
+
+  --drawer-bgcolor: #f3f5f7;
+  --white: #ffffff;
+  --transit: #d3e0f0;
+  --light-bg: #d3e0f0;
+  --light-gray: #dddddd;
+  --btn-bg: #525371;
+  --tab-bg: rgba(26, 58, 110, 0.15);
+  --search-bar-bg: rgba(26, 58, 110, 0.43);
+  --input-bgcolor: #f4f4f4;
+  --bgcolor: rgba(26, 58, 110, 0.2);
+  /* used the above Color */
+  --yello-color: #1A3A6E;
+  --red: #1A3A6E;
+  --black: #000;
+  --sabre: #1A3A6E;
+  --galileo: #ffffff;
+  --flyhub: #1A3A6E;
+  --mateBlack: #222222;
+  --tomato-color: #1A3A6E;
+  --text-greencolor: #1A3A6E;
+  --dark-greencolor: #1A3A6E;
+  --total-text-color: #1A3A6E;
+  --landing-page-circle: rgba(26, 58, 110, 0.15);
+
+  /* Premium Design Tokens */
+  --premium-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --premium-shadow-md: 0 4px 20px -2px rgba(26, 58, 110, 0.08), 0 2px 8px -1px rgba(26, 58, 110, 0.04);
+  --premium-shadow-lg: 0 12px 30px -4px rgba(26, 58, 110, 0.12), 0 4px 12px -2px rgba(26, 58, 110, 0.06);
+  --premium-gradient-primary: linear-gradient(135deg, #1A3A6E 0%, #204682 100%);
+  --premium-gradient-accent: linear-gradient(135deg, #1A3A6E 0%, #204682 100%);
+  --premium-gradient-success: linear-gradient(135deg, #1A3A6E 0%, #204682 100%);
+  --premium-gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.45) 100%);
+  --premium-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --premium-border-radius-sm: 8px;
+  --premium-border-radius-md: 12px;
+  --premium-border-radius-lg: 16px;
+  
+  /* Modern Neutral Palette */
+  --neutral-50: #f8fafc;
+  --neutral-100: #f1f5f9;
+  --neutral-200: #e2e8f0;
+  --neutral-300: #cbd5e1;
+  --neutral-400: #94a3b8;
+  --neutral-500: #64748b;
+  --neutral-650: #475569;
+  --neutral-800: #1e293b;
+  --neutral-900: #0f172a;
+}
+
+button.shine-effect {
+  overflow: hidden;
+}
+
+.scrollbar-control::-webkit-scrollbar {
+  width: 0px !important; /* Width of the vertical scrollbar */
+}
+
+button.shine-effect::after {
+  content: "";
+  width: 30px;
+  height: 200px;
+  position: absolute;
+  left: -20px;
+  top: 0;
+  margin-top: -20px;
+  background: var(--secondary-color);
+  opacity: 0.6;
+  filter: blur(20px);
+  animation: shine 4s infinite;
+  animation-delay: 0s;
+  transform-origin: top;
+}
+@keyframes shine {
+  from {
+    transform: translate(0) rotate(45deg);
+  }
+  to {
+    transform: translateX(120vh) rotate(45deg);
+  }
+}
+.customPlaceholder::placeholder {
+  color: var(--secondary-color) !important ;
+}
+
+.sabre {
+  /* border: 2px solid var(--sabre); */
+  border: 2px solid var(--white);
+  border-radius: 100%;
+  /* height: 50px;
+  width: 50px; */
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  /* object-fit: cover; */
+}
+.galileo {
+  /* border: 2px solid var(--galileo); */
+  border: 2px solid var(--white);
+  border-radius: 100%;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.flyhub {
+  border: 2px solid var(--flyhub);
+  /* border: 2px solid var(--white); */
+  border-radius: 100%;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.dashboard-calendar {
+  /* position: absolute; */
+  /* top: 105%;
+  left: 10px; */
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.new-return-date-range {
+  position: absolute;
+  top: 105%;
+  right: 25px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 5px;
+  z-index: 10;
+}
+.new-return-date-range .rdrDateDisplayWrapper,
+.new-return-date-mobile .rdrDateDisplayWrapper {
+  display: none;
+}
+
+@media all and (max-width: 600px) {
+  .new-return-date-range {
+    position: absolute;
+    width: 92vw;
+    top: 100%;
+    left: -10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 5px;
+    z-index: 10;
+  }
+  .new-return-date-range .rdrDateDisplayWrapper,
+  .new-return-date-mobile .rdrDateDisplayWrapper {
+    display: none;
+  }
+}
+
+/*//todo: CSS for all */
+.balance-transaction table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.balance-transaction table tr th {
+  background-color: var(--secondary-color);
+  color: #fff;
+  padding: 8px 0px;
+  font-weight: 300;
+  font-size: 12px;
+  text-align: center;
+}
+
+.balance-transaction table td,
+th {
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+}
+
+.balance-transaction table td {
+  color: #252733;
+  font-size: 12px;
+}
+
+.balance-transaction table tr:hover {
+  background-color: #e0ecfb !important;
+}
+
+.passengerInput1 p {
+  color: var(--primary-color);
+  font-family: "Inter";
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.passengerInput1 input {
+  background: none;
+  border: 0px;
+  /* border: 1px solid #2d669b; */
+  width: 100%;
+  padding-bottom: 5px;
+  color: #4c4b4b;
+}
+
+.passengerInput1 select {
+  background: none;
+  border: 0px;
+  /* border-bottom: 1px solid #2d669b; */
+  width: 100%;
+  /* padding-bottom: 5px; */
+  color: #4c4b4b;
+  font-size: 15.2px;
+  font-family: "Inter";
+  font-weight: 500;
+}
+
+.passengerInput1 input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #4c4b4b;
+  opacity: 1; /* Firefox */
+  font-size: 15.2px;
+  font-family: "Inter";
+  font-weight: 500;
+}
+
+.passengerInput1 input:focus {
+  outline: none;
+}
+.passengerInput1 select:focus {
+  outline: none;
+}
+
+.hold-btn {
+  padding: 5px;
+  color: var(--primary-color);
+}
+.issue-in-processing-btn {
+  padding: 5px;
+  color: var(--primary-color);
+}
+.issue-rejected-btn {
+  padding: 5px;
+  color: var(--primary-color);
+}
+.ticketed-btn {
+  padding: 5px;
+  color: var(--primary-color);
+}
+
+.void-in-processing-btn {
+  padding: 5px;
+  color: var(--primary-color);
+}
+.voided-btn {
+  padding: 5px;
+  color: var(--primary-color);
+}
+.void-rejected-btn {
+  padding: 5px;
+  color: var(--primary-color);
+}
+.reissue-in-processing-btn {
+  padding: 5px;
+  color: var(--primary-color);
+}
+.reissued-btn {
+  padding: 5px;
+  color: var(--primary-color);
+}
+.reissue-rejected-btn {
+  padding: 5px;
+  color: var(--primary-color);
+}
+.refund-in-processing-btn {
+  padding: 5px;
+  color: var(--primary-color);
+}
+
+.refunded-btn {
+  padding: 5px;
+  color: var(--primary-color);
+}
+.refund-rejected-btn {
+  padding: 5px;
+  color: var(--primary-color);
+}
+.return-btn {
+  padding: 5px;
+  color: var(--primary-color);
+}
+.cancelled-btn {
+  padding: 5px;
+  color: #64748b;
+}
+.pending-btn {
+  padding: 5px;
+  color: var(--primary-color);
+  text-transform: capitalize;
+}
+.approved-btn {
+  padding: 5px;
+  color: var(--primary-color);
+  text-transform: capitalize;
+}
+.rejected-btn {
+  padding: 5px;
+  color: var(--primary-color);
+  text-transform: capitalize;
+}
+/* -----Ledger----- */
+.purchase-btn {
+  padding: 5px;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+.deposit-btn {
+  padding: 5px;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+.ticket-btn {
+  padding: 5px;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+.bonus-btn {
+  padding: 5px;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+.reversal-btn {
+  padding: 5px;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 5px;
+}
+
+.new-dashboard-calendar {
+  position: absolute;
+  top: 115%;
+  left: 0px;
+  border-radius: 0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  z-index: 1000;
+  text-align: center;
+}
+
+.new-dashboard-calendar .rdrMonth,
+.return-dashboard-calendar .rdrMonth {
+  padding: 5px;
+}
+.new-dashboard-calendar span,
+.return-dashboard-calendar span {
+  font-size: 14px;
+  font-weight: bold;
+}
+.new-dashboard-calendar span.rdrWeekDay,
+.return-dashboard-calendar span.rdrWeekDay {
+  color: var(--primary-color);
+}
+.new-dashboard-calendar .rdrMonthName,
+.return-dashboard-calendar .rdrMonthName {
+  color: #003566;
+}
+
+.new-dashboard-calendar .rdrMonthAndYearWrapper,
+.return-dashboard-calendar .rdrMonthAndYearWrapper {
+  align-items: center;
+  height: 30px;
+  padding-top: 0px;
+}
+.pdf-ancortag a {
+  text-decoration: none !important;
+}
+
+/*  Quedetaisl Table------------- */
+
+.flight-queue-detail table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.flight-queue-detail table th {
+  font-family: "Inter";
+  background: var(--cong-color);
+  border: none !important;
+  text-align: left;
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--secondary-color);
+  padding: 8px;
+}
+.flight-queue-detail table tr {
+  border: none !important;
+  margin-bottom: 100px;
+}
+.flight-queue-detail table td {
+  padding: 8px;
+  font-size: 12px;
+  border: 1px solid #d1e9ff;
+  text-align: left;
+  vertical-align: top;
+}
+.table-data tr td {
+  font-weight: 500;
+  font-size: 12px;
+}
+
+/*  Queudetails  Table------------- */
+/*  Responsive Table------------- */
+
+.table-wrapper {
+  overflow-y: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.responsive-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  table-layout: fixed;
+  border: 1px solid #ddd;
+}
+
+.responsive-table th {
+  text-align: left;
+  font-size: 11px;
+  border: 1px solid var(--border);
+  font-weight: 500;
+}
+
+.responsive-table td {
+  text-align: left;
+  padding: 5px;
+  font-size: 11px;
+  border: 1px solid var(--border);
+  font-weight: 500;
+}
+.responsive-table th {
+  padding: 10px 5px;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-weight: 500;
+}
+.congra th {
+  font-size: 14px;
+  padding: 7px 5px;
+  background-color: var(--cong-color);
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+.congra td {
+  padding: 8px 5px;
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+/* .responsive-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+} */
+
+.table-wrapper::-webkit-scrollbar {
+  width: 10px;
+}
+.table-wrapper::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+.table-wrapper::-webkit-scrollbar-track {
+  background-color: transparentize(#ccc, 0.7);
+}
+.table-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: transparentize(#ccc, 0.5);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.searchList1-select {
+  width: 50%;
+  border: none;
+  border: 1px solid #70a5d8;
+  border-radius: 2px;
+  height: 34px;
+  color: #000 !important;
+  padding: 0px 5px !important;
+  font-size: 14px;
+  max-height: 300px;
+  overflow-y: scroll;
+  outline: none;
+}
+.searchList1-select option {
+  width: 50%;
+  border: none;
+  border: 1px solid #70a5d8;
+  border-radius: 2px;
+  height: 34px;
+  color: #003566 !important;
+  padding: 10px 10px !important;
+  margin: 10px !important;
+  font-size: 14px;
+  outline: none;
+}
+
+.searchList1 input:focus {
+  outline: none !important;
+}
+.custom-file-input-container {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.custom-file-input-container input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 100px) and (max-width: 1200px) {
+  .table-wrapper {
+    overflow-y: hidden !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    width: 100vw !important;
+  }
+
+  .responsive-table {
+    border-collapse: collapse !important;
+    border-spacing: 0;
+    width: 1100px !important;
+    border: 1px solid #ddd;
+    /* table-layout: fixed; */
+  }
+
+  .flight-queue-detail table th {
+    font-size: 9px;
+    font-weight: 500;
+  }
+  .flight-queue-detail table td {
+    font-size: 9px;
+    font-weight: 500;
+  }
+}
+
+.even-color {
+  background-color: rgba(173, 216, 230, 0.411);
+}
+
+.odd-color {
+  background-color: var(--light-gray);
+}
+
+.custom-selects select {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--black);
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  text-transform: capitalize;
+  outline: none;
+  position: relative !important;
+}
+
+.custom-selects select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: url("./images/dropdownarrow.svg") no-repeat right 10px center !important; /* Replace with the path to your arrow image */
+  /* background-color: var(--bgcolor) !important; */
+}
+
+.custom-selects select::-ms-expand {
+  display: none !important; /* Remove arrow in IE10 and IE11 */
+}
+
+.swal2-title {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
+.hold {
+  padding: 5px;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+
+.reissue-btn {
+  color: #ffffff; /* Example color for Reissued */
+  padding: 5px;
+  background: var(--primary-color);
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+.void-btn {
+  color: #ffffff; /* Example color for Reissued */
+  padding: 5px;
+  background: var(--primary-color);
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+.fee-btn {
+  color: #ffffff; /* Example color for Reissued */
+  padding: 5px;
+  background: var(--primary-color);
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+.refund-btn {
+  color: #ffffff; /* Example color for Reissued */
+  padding: 5px;
+  background: var(--primary-color);
+  border-radius: 5px;
+  text-transform: capitalize;
+}
+
+.active-landing-normal {
+  text-decoration: none !important;
+  color: var(--fontcolor) !important;
+  font-size: 16px;
+}
+.active-landing-nav {
+  text-decoration: none !important;
+  color: var(--primary-color) !important;
+  font-size: 16px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.custom-spin {
+  animation: spin 1s infinite linear;
+}
+
+.bg-images {
+  /* background-image: url("./images/"); */
+  width: 100%;
+  height: 100vh;
+  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://i.ibb.co/9VspxXs/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; */
+  /* background-position: center; */
+  /* background-repeat: no-repeat;
+  background-size: cover; */
+  background-color: var(--primary-rgb);
+}
+.agent-booking-details-table tr {
+  background-color: var(--table-heading);
+}
+.agent-booking-details-table th {
+  background-color: var(--table-heading);
+  color: var(--white);
+  text-align: center;
+}

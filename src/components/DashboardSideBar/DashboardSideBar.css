@@ -1,0 +1,63 @@
+.css-1onud4a-MuiButtonBase-root-MuiListItemButton-root ,.css-hpcnaf-MuiButtonBase-root-MuiListItemButton-root,.css-13hvc78-MuiButtonBase-root-MuiListItemButton-root:hover {
+    -webkit-text-decoration: none;
+    text-decoration: none;
+    background-color: #fff !important;
+    }
+    
+    .css-16748jg-MuiButtonBase-root-MuiListItemButton-root:hover {
+        -webkit-text-decoration: none;
+        text-decoration: none;
+        background-color: #fff !important;
+    }
+
+
+
+.buttonHover:hover{
+    background-color: var(--white) !important;
+    color: #fff !important;
+}
+
+/*  dashboard icon hover */
+.buttonHover:hover .Dashicon{
+    color: var( --primary-color) !important;
+}
+/*  dashboard text hover */
+.buttonHover:hover .DashNaVtext{
+    color: var( --primary-color) !important;
+}
+
+
+/*  sub menu work here */
+
+.DashSubManu{
+    padding-bottom: 20px;
+    width:90%;
+    border-bottom-right-radius: 5px;
+
+}
+
+.DashSubManuChild{
+    border-left: 3px solid var( --secondary-color);
+    width: 64%;
+    margin: auto;
+
+}
+
+.DashSubManu a{
+    text-decoration: none;
+    color: var(  --secondary-color);
+}
+
+
+.DashSubManu a{
+    padding: 6px 22px;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px; 
+}
+.DashSubManu a:hover{
+    background-color: var(--secondary-color);
+    color: var(--white);
+    
+}
