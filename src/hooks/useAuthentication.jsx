@@ -56,7 +56,7 @@ const useAuthentication = () => {
     } catch (error) {
       console.error("Error during logout: ", error);
     } finally {
-      navigate("/");
+      navigate("/signin");
     }
   };
   return {

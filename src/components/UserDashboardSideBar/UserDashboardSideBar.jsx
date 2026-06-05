@@ -175,8 +175,7 @@ const UserDashboardSideBar = () => {
   };
 
   const handleLogout = () => {
-    secureLocalStorage.removeItem("user-info");
-    navigate("/");
+    logout();
   };
 
   const staff = tokenise?.staffdata;

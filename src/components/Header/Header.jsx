@@ -89,8 +89,7 @@ const Header = () => {
   };
 
   const handleLogout = () => {
-    secureLocalStorage.removeItem("user-info");
-    navigate("/");
+    logout();
   };
 
   useEffect(() => {
