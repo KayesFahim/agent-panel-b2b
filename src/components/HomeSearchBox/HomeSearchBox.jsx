@@ -43,7 +43,7 @@ const HomeSearchBox = () => {
   const [value, setValue] = React.useState("oneway");
   const [className, setClassName] = useState("Y");
   const [from, setFrom] = useState(addDays(now.current, 1));
-  const [to, setTo] = useState(addDays(now.current, 3));
+  const [to, setTo] = useState(addDays(now.current, 4));
   const [faddress, setfaddress] = useState("");
   const [toAddress, setToAddress] = useState("");
   const [fromSendData, setFromSendData] = useState("");

@@ -34,13 +34,17 @@ const CustomTable = ({
   //   canNextPage,
   //   canPreviousPage,
   //   pageOptions,
-  const pageLength = Math.ceil(totalLength / pageList);
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
     prepareRow,
-    page, 
+    page,
+    pageCount: internalPageCount,
+    gotoPage: internalGotoPage,
+    canPreviousPage: internalCanPreviousPage,
+    canNextPage: internalCanNextPage,
+    state: { pageIndex: internalPageIndex },
   } = useTable(
     {
       columns,
@@ -53,7 +57,15 @@ const CustomTable = ({
     useSortBy, // Add sorting functionality
     usePagination // Add pagination functionality
   );
-  const pageCount = pageLength;
+
+  const activePageIndex = pageIndex !== undefined ? pageIndex : internalPageIndex;
+  const activePageCount = totalLength !== undefined && !isNaN(totalLength)
+    ? Math.ceil(totalLength / (pageList || 10))
+    : internalPageCount;
+  const activeGotoPage = gotoPage !== undefined ? gotoPage : internalGotoPage;
+  const activeCanPreviousPage = canPreviousPage !== undefined ? canPreviousPage : internalCanPreviousPage;
+  const activeCanNextPage = canNextPage !== undefined ? canNextPage : internalCanNextPage;
+
   return (
     <Box
       sx={{
@@ -120,7 +132,7 @@ const CustomTable = ({
           </tbody>
         </table>
       </div>
-      {totalLength > 0 && (
+      {(totalLength > 0 || activePageCount > 1) && (
         <Box sx={{
           mt: 2,
           display: display || 'flex',
@@ -128,14 +140,13 @@ const CustomTable = ({
           alignItems: 'center',
         }}>
           <CustomPagination
-            pageIndex={pageIndex}
-            pageCount={pageCount}
-            gotoPage={gotoPage}
-            canPreviousPage={canPreviousPage}
-            canNextPage={canNextPage}
+            pageIndex={activePageIndex}
+            pageCount={activePageCount}
+            gotoPage={activeGotoPage}
+            canPreviousPage={activeCanPreviousPage}
+            canNextPage={activeCanNextPage}
           />
         </Box>
-        
       )}
     </Box>
   );

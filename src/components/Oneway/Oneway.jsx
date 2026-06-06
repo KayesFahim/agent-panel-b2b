@@ -12,7 +12,7 @@ import React, { useState } from "react";
 import { Calendar } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-import { format } from "date-fns";
+import { format, addDays } from "date-fns";
 import { styled } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import Radio from "@mui/material/Radio";
@@ -22,7 +22,7 @@ import FormControl from "@mui/material/FormControl";
 import Stack from "@mui/material/Stack";
 import _secureLocalStorage from "react-secure-storage";
 const secureLocalStorage = _secureLocalStorage.default || _secureLocalStorage;
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import AirlineSeatReclineNormalIcon from "@mui/icons-material/AirlineSeatReclineNormal";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import SearchIcon from "@mui/icons-material/Search";
@@ -187,6 +187,18 @@ const Oneway = ({
     }
   }, []);
   // todo: end of users section
+  const isFirstRender = useRef(true);
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    if (tripType === "return" && from) {
+      const returnDate = addDays(new Date(from), 3);
+      setTo(returnDate);
+    }
+  }, [tripType]);
+
   //todo: is Click state
   const [click, setClick] = useState(false);
   //todo: end of click state
@@ -642,6 +654,8 @@ const Oneway = ({
       setTimeout(() => setOpen(true), 200);
     }
     if (tripType === "return") {
+      const defaultReturnDate = addDays(new Date(date), 3);
+      setTo(defaultReturnDate);
       setTimeout(() => setOpenReturnDate(true), 200);
     }
   };

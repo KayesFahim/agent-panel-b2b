@@ -45,7 +45,7 @@ const FlightUserInfo = ({
   const userDataCopy = JSON.parse(JSON.stringify(flightData));
 
   const [userPhoneNumber, setUserPhoneNumber] = useState(
-    tokenise?.phone || "880"
+    tokenise?.phone || "92"
   );
   const [email, setEmail] = useState(tokenise?.email || "");
   function addMonths(date, months) {
@@ -56,6 +56,11 @@ const FlightUserInfo = ({
     new Date(flightData?.AllLegsInfo[0]?.DepDate),
     6
   );
+  let dateAfterSixMonthsFromToday = (() => {
+    const d = new Date();
+    d.setMonth(d.getMonth() + 6);
+    return d;
+  })();
   let dateBeforeTwelveYears = addMonths(
     new Date(flightData?.AllLegsInfo[0]?.DepDate),
     -144
@@ -115,9 +120,7 @@ const FlightUserInfo = ({
         dob: "",
         nationality: "BD",
         document: checkDomestic ? `${generateRandomNumber()}` : "",
-        expiredate: checkDomestic
-          ? format(new Date(dateAfterSixMonths), "yyyy-MM-dd")
-          : format(new Date(dateAfterSixMonths), "yyyy-MM-dd"),
+        expiredate: format(dateAfterSixMonthsFromToday, "yyyy-MM-dd"),
         openDate: false,
         openPassExDate: false,
       };
@@ -132,9 +135,7 @@ const FlightUserInfo = ({
         dob: "",
         nationality: "BD",
         document: checkDomestic ? `${generateRandomNumber()}` : "",
-        expiredate: checkDomestic
-          ? format(new Date(dateAfterSixMonths), "yyyy-MM-dd")
-          : format(new Date(dateAfterSixMonths), "yyyy-MM-dd"),
+        expiredate: format(dateAfterSixMonthsFromToday, "yyyy-MM-dd"),
         openDate: false,
         openPassExDate: false,
       };
@@ -148,7 +149,7 @@ const FlightUserInfo = ({
         dob: "",
         nationality: "BD",
         document: checkDomestic ? `${generateRandomNumber()}` : "",
-        expiredate: format(new Date(), "yyyy-MM-dd"),
+        expiredate: format(dateAfterSixMonthsFromToday, "yyyy-MM-dd"),
         openDate: false,
         openPassExDate: false,
       };
@@ -442,9 +443,17 @@ const FlightUserInfo = ({
 
   const handleClickAway = () => { };
   //todo: add traveler states
-  const adultTravelers = travellers.filter((item) => item.type === "ADT");
-  const childTravelers = travellers.filter((item) => item.type === "C09");
-  const infantTravelers = travellers.filter((item) => item.type === "INF");
+  const isPassportExpired = (expiredate) => {
+    if (!expiredate) return false;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const expDate = new Date(expiredate);
+    if (isNaN(expDate.getTime())) return false;
+    return expDate < today;
+  };
+  const adultTravelers = travellers.filter((item) => item.type === "ADT" && !isPassportExpired(item.expiredate));
+  const childTravelers = travellers.filter((item) => item.type === "C09" && !isPassportExpired(item.expiredate));
+  const infantTravelers = travellers.filter((item) => item.type === "INF" && !isPassportExpired(item.expiredate));
   const optionAdults = adultTravelers.map((x, index) => {
     if (x.type === "ADT") {
       return {
@@ -843,7 +852,7 @@ const FlightUserInfo = ({
                                         : null
                                     }
                                     months={1}
-                                    minDate={new Date(dateAfterSixMonths)}
+                                    minDate={new Date()}
                                     className="user-info-calendar"
                                   />
                                 )}
@@ -1517,7 +1526,7 @@ const FlightUserInfo = ({
                           </label>
                           <PhoneInput
                             // required
-                            country={"bd"}
+                            country={"pk"}
                             name="contactpersonphonenumber"
                             id="contactpersonphonenumber"
                             value={userPhoneNumber}
@@ -1575,7 +1584,7 @@ const FlightUserInfo = ({
                       <button
                         type="submit"
                         style={{
-                          backgroundColor: "#ED5A2B",
+                          backgroundColor: "var(--primary-color)",
                           color: "#fff",
                           fontSize: "14px",
                           width: "100%",
@@ -1590,7 +1599,7 @@ const FlightUserInfo = ({
                     ) : (
                       <Box
                         style={{
-                          backgroundColor: "#ED5A2B",
+                          backgroundColor: "var(--primary-color)",
                           color: "#fff",
                           fontSize: "14px",
                           width: "100%",

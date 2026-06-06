@@ -43,7 +43,7 @@ const MultiCityUserInfo = ({ userData, flightData, setIsLoaded }) => {
   //todo: end of user information
 
   const [userPhoneNumber, setUserPhoneNumber] = useState(
-    user?.user?.phone || "966"
+    user?.user?.phone || "92"
   );
   const [email, setEmail] = useState(user?.user?.email || "");
   const { adultCount, childCount, infant } = userData;
@@ -58,6 +58,11 @@ const MultiCityUserInfo = ({ userData, flightData, setIsLoaded }) => {
     return date;
   }
   let dateAfterSixMonths = addMonths(new Date(lastObj[0]?.arrivalTime), 6);
+  let dateAfterSixMonthsFromToday = (() => {
+    const d = new Date();
+    d.setMonth(d.getMonth() + 6);
+    return d;
+  })();
   let dateBeforeTwelveYears = addMonths(
     new Date(lastObj[0]?.arrivalTime),
     -144
@@ -98,7 +103,7 @@ const MultiCityUserInfo = ({ userData, flightData, setIsLoaded }) => {
         adob: format(new Date(), "dd MMM yyyy"),
         apassNation: "",
         apassNo: "",
-        apassEx: format(new Date(dateAfterSixMonths), "dd MMM yyyy"),
+        apassEx: format(dateAfterSixMonthsFromToday, "dd MMM yyyy"),
         openDate: false,
         openPassExDate: false,
       };
@@ -112,7 +117,7 @@ const MultiCityUserInfo = ({ userData, flightData, setIsLoaded }) => {
         cdob: format(new Date(), "dd MMM yyyy"),
         cpassNation: "SA",
         cpassNo: "",
-        cpassEx: format(new Date(dateAfterSixMonths), "dd MMM yyyy"),
+        cpassEx: format(dateAfterSixMonthsFromToday, "dd MMM yyyy"),
         openDate: false,
         openPassExDate: false,
       };
@@ -126,7 +131,7 @@ const MultiCityUserInfo = ({ userData, flightData, setIsLoaded }) => {
         idob: format(new Date(), "dd MMM yyyy"),
         ipassNation: "SA",
         ipassNo: "",
-        ipassEx: format(new Date(dateAfterSixMonths), "dd MMM yyyy"),
+        ipassEx: format(dateAfterSixMonthsFromToday, "dd MMM yyyy"),
         openDate: false,
         openPassExDate: false,
       };
@@ -411,9 +416,17 @@ const MultiCityUserInfo = ({ userData, flightData, setIsLoaded }) => {
 
   const handleClickAway = () => { };
   //todo: add traveler states
-  const adultTravelers = travellers.filter((item) => item.type === "ADT");
-  const childTravelers = travellers.filter((item) => item.type === "C09");
-  const infantTravelers = travellers.filter((item) => item.type === "INF");
+  const isPassportExpired = (passEx) => {
+    if (!passEx) return false;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const expDate = new Date(passEx);
+    if (isNaN(expDate.getTime())) return false;
+    return expDate < today;
+  };
+  const adultTravelers = travellers.filter((item) => item.type === "ADT" && !isPassportExpired(item.passEx));
+  const childTravelers = travellers.filter((item) => item.type === "C09" && !isPassportExpired(item.passEx));
+  const infantTravelers = travellers.filter((item) => item.type === "INF" && !isPassportExpired(item.passEx));
   const optionAdults = adultTravelers.map((x, index) => {
     if (x.type === "ADT") {
       return {
@@ -1378,7 +1391,7 @@ const MultiCityUserInfo = ({ userData, flightData, setIsLoaded }) => {
                         </label>
                         <PhoneInput
                           required
-                          country={"sa"}
+                          country={"pk"}
                           name="contactpersonphonenumber"
                           id="contactpersonphonenumber"
                           value={userPhoneNumber}

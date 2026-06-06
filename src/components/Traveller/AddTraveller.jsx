@@ -7,11 +7,10 @@ import {
   Typography,
 } from "@mui/material";
 import { format } from "date-fns";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Calendar } from "react-date-range";
 import _PhoneInput from "react-phone-input-2";
-const PhoneInput = _PhoneInput.default || _PhoneInput;
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import _secureLocalStorage from "react-secure-storage";
 const secureLocalStorage = _secureLocalStorage.default || _secureLocalStorage;
 import Swal from "sweetalert2";
@@ -23,14 +22,50 @@ import Header from "../Header/Header";
 import "./AddTraveller.css";
 import getAuthToken from "../../Token/getAuthToken";
 
+const PhoneInput = _PhoneInput.default || _PhoneInput;
+
 const AddTraveller = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const token = getAuthToken();
-  const [travelerData, setTravelerData] = useState({});
-  const [userPhoneNumber, setUserPhoneNumber] = useState("880");
+  const editData = location.state?.editData;
+
+  const [travelerData, setTravelerData] = useState({
+    fname: "",
+    lname: "",
+    dob: "",
+    type: "",
+    nationality: "BD",
+    passportno: "",
+    passexpireDate: "",
+    phone: "",
+    email: "",
+    gender: "",
+  });
+  const [userPhoneNumber, setUserPhoneNumber] = useState("92");
   const [openDob, setOpenDob] = useState(false);
   const [openPassEx, setOpenPassEx] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (editData) {
+      setTravelerData({
+        fname: editData.givenname || "",
+        lname: editData.surname || "",
+        dob: editData.dob || "",
+        type: editData.type || "",
+        nationality: editData.nationality || "BD",
+        passportno: editData.document || "",
+        passexpireDate: editData.expiredate || "",
+        phone: editData.phone || "",
+        email: editData.email || "",
+        gender: editData.gender || "",
+      });
+      if (editData.phone) {
+        setUserPhoneNumber(editData.phone);
+      }
+    }
+  }, [editData]);
 
   // todo: date validation
   function addMonths(date, months) {
@@ -48,11 +83,15 @@ const AddTraveller = () => {
     e.preventDefault();
     setLoading(true);
 
-    const url = `${import.meta.env.REACT_APP_API_URL}/agent/traveller`;
+    const url = editData
+      ? `${import.meta.env.REACT_APP_API_URL}/agent/traveller/${editData.uid}`
+      : `${import.meta.env.REACT_APP_API_URL}/agent/traveller`;
+
+    const method = editData ? "PATCH" : "POST";
 
     try {
       const response = await fetch(url, {
-        method: "POST",
+        method: method,
         headers: {
           Accept: "*/*",
           "Content-Type": "application/json",
@@ -82,7 +121,9 @@ const AddTraveller = () => {
         imageHeight: 200,
         imageAlt: "Custom image",
         title: "Success",
-        html: "<strong>A New Traveller Added</strong>",
+        html: editData
+          ? "<strong>Traveller Updated Successfully</strong>"
+          : "<strong>A New Traveller Added</strong>",
         confirmButtonColor: "#dc143c",
         confirmButtonText: "Ok",
       }).then(() => {
@@ -180,7 +221,7 @@ const AddTraveller = () => {
                 mt: { xs: 14 },
               }}
             >
-              Add TRAVELER
+              {editData ? "Edit TRAVELER" : "Add TRAVELER"}
             </Typography>
             {/* <Typography
               sx={{ fontWeight: "500px", fontSize: "16px", color: "#2564B8" }}
@@ -612,7 +653,7 @@ const AddTraveller = () => {
                           width: "100%",
                         }}
                         required
-                        country={"SA"}
+                        country={"pk"}
                         name="phone"
                         value={userPhoneNumber}
                         onFocus={() => {
@@ -661,7 +702,11 @@ const AddTraveller = () => {
                         // disabled: !loading ? true : false,
                       }}
                     >
-                      {loading ? "Loading..." : "Add This Traveler"}
+                      {loading
+                        ? "Loading..."
+                        : editData
+                        ? "Update Traveler Information"
+                        : "Add This Traveler"}
                     </Button>
                   </Box>
                 </Grid>

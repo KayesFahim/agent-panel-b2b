@@ -1,4 +1,7 @@
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Button, Container, Tooltip, Typography } from "@mui/material";
+import WarningIcon from "@mui/icons-material/Warning";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { format } from "date-fns";
 import React, { useEffect, useState } from "react";
 import "react-date-range/dist/styles.css"; // main css file
@@ -62,30 +65,99 @@ const Traveller = () => {
     {
       Header: "Expire Date",
       accessor: "expiredate",
-      Cell: ({ row }) =>
-        `${row.original.dob !== "" || "undefined" || null
-          ? format(new Date(row.original.expiredate), "dd MMM yy hh:mm")
-          : "Birth Date"
-        }`,
+      Cell: ({ row }) => {
+        const expireDateStr = row.original.expiredate;
+        if (!expireDateStr) return "N/A";
+
+        let isExpired = false;
+        let formattedDate = "N/A";
+        try {
+          const expDate = new Date(expireDateStr);
+          if (!isNaN(expDate.getTime())) {
+            formattedDate = format(expDate, "dd MMMM yyyy");
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            isExpired = expDate < today;
+          }
+        } catch (e) {
+          console.error(e);
+        }
+
+        return (
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "6px",
+            }}
+          >
+            <Typography
+              sx={{
+                fontSize: "14px",
+                color: isExpired ? "error.main" : "inherit",
+              }}
+            >
+              {formattedDate}
+            </Typography>
+            {isExpired && (
+              <Tooltip title="Update Passport Info" arrow>
+                <WarningIcon
+                  sx={{
+                    color: "error.main",
+                    fontSize: "18px",
+                    cursor: "pointer",
+                  }}
+                />
+              </Tooltip>
+            )}
+          </Box>
+        );
+      },
     },
     {
       Header: "Action",
       accessor: "action",
       Cell: ({ row }) => (
-        <button
-          style={{
-            background: "var(--primary-color)",
-            borderRadius: "5px",
-            padding: "2px 10px",
-            width: "120px",
-            cursor: "pointer",
-            border: "none",
-            color: "var(--white)",
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "12px",
           }}
-          onClick={() => handelDelete(row.original.uid, row.original.paxId)}
         >
-          Delete
-        </button>
+          <Tooltip title="Edit Traveller" arrow>
+            <EditIcon
+              sx={{
+                color: "var(--primary-color)",
+                cursor: "pointer",
+                fontSize: "20px",
+                "&:hover": {
+                  color: "var(--secondary-color)",
+                },
+              }}
+              onClick={() =>
+                navigate("/agent/addtraveller", {
+                  state: { editData: row.original },
+                })
+              }
+            />
+          </Tooltip>
+          <Tooltip title="Delete Traveller" arrow>
+            <DeleteForeverIcon
+              sx={{
+                color: "crimson",
+                cursor: "pointer",
+                fontSize: "22px",
+                "&:hover": {
+                  color: "red",
+                },
+              }}
+              onClick={() => handelDelete(row.original.uid, row.original.paxId)}
+            />
+          </Tooltip>
+        </Box>
       ),
     },
   ];
