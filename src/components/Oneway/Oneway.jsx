@@ -660,7 +660,17 @@ const Oneway = ({
     }
   };
   const handleSelectTo = (date) => {
-    setTo(date);
+    const selectedReturn = new Date(date);
+    selectedReturn.setHours(0, 0, 0, 0);
+    const currentFrom = new Date(from);
+    currentFrom.setHours(0, 0, 0, 0);
+
+    if (selectedReturn < currentFrom) {
+      // Safely fallback to departure date + 3 days if an invalid date was somehow picked
+      setTo(addDays(new Date(from), 3));
+    } else {
+      setTo(date);
+    }
     setChangeFrom(true);
     setOpenReturnDate(false);
     setTimeout(() => setOpen(true), 200);
@@ -1093,6 +1103,12 @@ const Oneway = ({
                   setOpenFrom(false);
                   setOpenTo(false);
                   setOpen(false);
+                  if (tripType === "oneway") {
+                    if (from) {
+                      const returnDate = addDays(new Date(from), 3);
+                      setTo(returnDate);
+                    }
+                  }
                   setTimeout(() => setOpenReturnDate((prev) => !prev), 200);
                   setValue("return");
                 }}
@@ -1148,7 +1164,11 @@ const Oneway = ({
                     date={new Date(from)}
                     onChange={handleSelect}
                     months={1}
-                    minDate={new Date()}
+                    minDate={(() => {
+                      const d = new Date();
+                      d.setHours(0, 0, 0, 0);
+                      return d;
+                    })()}
                     className={"dashboard-calendar"}
                   />
                 </Box>
@@ -1168,7 +1188,11 @@ const Oneway = ({
                     date={to}
                     onChange={handleSelectTo}
                     months={1}
-                    minDate={new Date(from)}
+                    minDate={(() => {
+                      const d = new Date(from);
+                      d.setHours(0, 0, 0, 0);
+                      return d;
+                    })()}
                     className={"dashboard-calendar"}
                   />
                 </Box>
